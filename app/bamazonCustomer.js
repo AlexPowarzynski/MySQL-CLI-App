@@ -1,7 +1,6 @@
 let mysql = require("mysql");
 let chalk = require("chalk");
 let inquirer = require("inquirer");
-let PORT = 3306;
 
 let connection = mysql.createConnection({
     host: "localhost",
