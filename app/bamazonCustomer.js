@@ -47,7 +47,7 @@ function buy() {
     inquirer
         .prompt([
             {
-                name: "itemlist",
+                name: "itemList",
                 type: "rawlist",
                 choices: function() {
                     var choiceArray = [];
@@ -67,10 +67,11 @@ function buy() {
         .then(function(answer) {
             let chosenItem;
             for (var i = 0; i < results.length; i++) {
-                if (results[i].item_name === answer.itemList) {
+                if (answer.itemList === results[i].product_name + chalk.blue("  $" + results[i].price) + chalk.red("  In Stock:" + results[i].stock_quantity)) {
                     chosenItem = results[i];
                 }
             }
+            console.log(chosenItem);
             if (chosenItem.stock_quantity > parseInt(answer.amount)) {
 
                 let newQuantity = chosenItem.stock_quantity - answer.amount;
@@ -89,14 +90,14 @@ function buy() {
                     ],
                     function(error) {
                         if (error) throw err;
-                        console.log(`Purchase success!  Total amount spent: $${totalCost}`);
+                        console.log(`Purchase success!  Total amount spent: $${(totalCost).toFixed(2)}`);
                         run();
                     }
                 );
             }
             else {
                 // bid wasn't high enough, so apologize and start over
-                console.log("Not enough in stock! Try again.");
+                console.log(chalk.bold.red("Not enough in stock! Try again."));
                 run();
             }
         });
