@@ -43,6 +43,7 @@ function run(){
 function buy() {
     connection.query("SELECT * FROM products", function(err, results) {
     if (err) throw err;
+
     inquirer
         .prompt([
             {
@@ -70,8 +71,6 @@ function buy() {
                     chosenItem = results[i];
                 }
             }
-
-
             if (chosenItem.stock_quantity > parseInt(answer.amount)) {
 
                 let newQuantity = chosenItem.stock_quantity - answer.amount;
