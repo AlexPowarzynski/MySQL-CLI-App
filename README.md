@@ -1,5 +1,7 @@
 # MySQL-CLI-App
 
+Video of usage link: https://drive.google.com/file/d/1nHXLWJ8zAQxIB6aXlM72jkJSmDJcz05H/view?usp=sharing
+
 ###Challenge #1: Customer View (Minimum Requirement)
 
 
