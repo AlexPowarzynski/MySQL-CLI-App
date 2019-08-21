@@ -70,7 +70,7 @@ function buy() {
                     chosenItem = results[i];
                 }
             }
-            console.log(chosenItem);
+            // console.log(chosenItem);
             if (chosenItem.stock_quantity > parseInt(answer.amount)) {
 
                 let newQuantity = chosenItem.stock_quantity - answer.amount;
